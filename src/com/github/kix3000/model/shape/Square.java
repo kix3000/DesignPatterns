@@ -1,6 +1,6 @@
-package com.github.kix3000.model;
+package com.github.kix3000.model.shape;
 
-class Square implements Shape {
+public class Square implements Shape {
     @Override
     public void draw() {
         System.out.println("Drawing square...");
