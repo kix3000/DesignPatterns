@@ -1,17 +1,13 @@
 package com.github.kix3000;
 
 public class Context {
-    private State state;
+    private Strategy strategy;
 
-    public Context(){
-        state = null;
+    public Context(Strategy strategy){
+        this.strategy = strategy;
     }
 
-    public void setState(State state){
-        this.state = state;
-    }
-
-    public State getState(){
-        return state;
+    public int executeStrategy(int num1, int num2){
+        return strategy.doOperation(num1, num2);
     }
 }

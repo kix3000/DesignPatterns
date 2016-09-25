@@ -5,16 +5,14 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Starting main...\n");
 
-        Context context = new Context();
+        Context context = new Context(new OperationAdd());
+        System.out.println("10 + 5 = " + context.executeStrategy(10, 5));
 
-        StartState startState = new StartState();
-        startState.doAction(context);
+        context = new Context(new OperationSubstract());
+        System.out.println("10 - 5 = " + context.executeStrategy(10, 5));
 
-        System.out.println(context.getState().toString());
+        context = new Context(new OperationMultiply());
+        System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
 
-        StopState stopState = new StopState();
-        stopState.doAction(context);
-
-        System.out.println(context.getState().toString());
     }
 }
