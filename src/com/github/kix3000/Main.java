@@ -5,15 +5,16 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Starting main...\n");
 
-        Subject subject = new Subject();
+        Context context = new Context();
 
-        new HexaObserver(subject);
-        new OctalObserver(subject);
-        new BinaryObserver(subject);
+        StartState startState = new StartState();
+        startState.doAction(context);
 
-        System.out.println("First state change: 15");
-        subject.setState(15);
-        System.out.println("Second state change: 10");
-        subject.setState(10);
+        System.out.println(context.getState().toString());
+
+        StopState stopState = new StopState();
+        stopState.doAction(context);
+
+        System.out.println(context.getState().toString());
     }
 }
