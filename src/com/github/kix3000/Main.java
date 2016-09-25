@@ -5,15 +5,15 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Starting main...\n");
 
-        AbstractCustomer customer1 = CustomerFactory.getCustomer("Rob");
-        AbstractCustomer customer2 = CustomerFactory.getCustomer("Bob");
-        AbstractCustomer customer3 = CustomerFactory.getCustomer("Julie");
-        AbstractCustomer customer4 = CustomerFactory.getCustomer("Laura");
+        Subject subject = new Subject();
 
-        System.out.println("Customers");
-        System.out.println(customer1.getName());
-        System.out.println(customer2.getName());
-        System.out.println(customer3.getName());
-        System.out.println(customer4.getName());
+        new HexaObserver(subject);
+        new OctalObserver(subject);
+        new BinaryObserver(subject);
+
+        System.out.println("First state change: 15");
+        subject.setState(15);
+        System.out.println("Second state change: 10");
+        subject.setState(10);
     }
 }
